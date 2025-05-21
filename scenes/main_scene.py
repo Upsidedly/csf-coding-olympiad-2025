@@ -2,6 +2,7 @@
 # import random
 # import string
 from enum import Enum
+from typing import Union
 
 import pygame
 from pygame import Surface
@@ -232,7 +233,7 @@ class MainScene(Scene):
         self.can_place_color = green
         self.cant_place_color = red
         self.can_place = True
-        self.placement_data: None | tuple[Enum, dict[str, any]] = None
+        self.placement_data: Union[None, tuple[Enum, dict[str, any]]] = None
 
         # To make introduction dialogue see it
 

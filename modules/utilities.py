@@ -3,7 +3,7 @@ import os
 import sys
 from random import uniform, choices
 from string import ascii_uppercase, digits
-from typing import Optional, Callable, Tuple, Literal
+from typing import Optional, Callable, Tuple, Literal, Union
 
 import pygame.transform
 from pygame import Surface
@@ -183,7 +183,7 @@ def rounded_rect(
     return pygame.transform.scale(surf, (xy[0], xy[1]))
 
 
-type RectTemplate = Callable[[Tuple[int, int]], pygame.Surface]
+RectTemplate = Callable[[Tuple[int, int]], pygame.Surface]
 
 
 def rounded_rect_template(color=(255, 255, 255),
@@ -194,7 +194,7 @@ def rounded_rect_template(color=(255, 255, 255),
                           emulate_outline=False,
                           emulate_radius=False,
                           double_bottom=False,
-                          behavior: Literal['out'] | Literal['in'] = 'in') -> RectTemplate:
+                          behavior: Union[Literal['out'], Literal['in']] = 'in') -> RectTemplate:
     return lambda xy: rounded_rect(xy, color, emulated_x(xy), radius, outline, outline_color, emulate_outline,
                                    emulate_radius, double_bottom, behavior=behavior)
 
