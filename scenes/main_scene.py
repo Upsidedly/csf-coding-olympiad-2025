@@ -376,16 +376,17 @@ class MainScene(Scene):
         t_pos = u.div_vec2(u.get_distance_from_centre(dims, pygame.mouse.get_pos()), self.fixed_zoom_factor)
         if self.game.placement_info is not None:
             # if self.game.placement_info['type'] != InfraType.TRANSMISSION_LINE
-            self.placement_data = (self.game.placement_info['type'],
-                                   info_map[self.game.placement_info['category']][self.game.placement_info['type']])
-            self.game.placement_info = None
-            self.game.observable_handler['action_state'] = ActionState.NONE
-            self.game.player.budget -= self.placement_data[1]['cost']
-            self.game.modal_handler.show_simple_modal(
-                'What do you want to name it?',
-                f'Creation',
-                on_close=lambda: self.create(self.game.modal_handler.input_box.data, t_pos),
-                input_visible=True)
+            # self.placement_data = (self.game.placement_info['type'],
+            #                        info_map[self.game.placement_info['category']][self.game.placement_info['type']])
+            # self.game.placement_info = None
+            # self.game.observable_handler['action_state'] = ActionState.NONE
+            # self.game.player.budget -= self.placement_data[1]['cost']
+            # self.game.modal_handler.show_simple_modal(
+            #     'What do you want to name it?',
+            #     f'Creation',
+            #     on_close=lambda: self.create(self.game.modal_handler.input_box.data, t_pos),
+            #     input_visible=True)
+            self.game.modal_handler.show_simple_modal("Test Modal")
 
     def draw_placement(self):
         if self.game.observable_handler['action_state'].value == ActionState.PLACING:

@@ -248,14 +248,14 @@ def empty():
     pass
 
 
-def comma_adder(amount: float | int):
+def comma_adder(amount: Union[float, int]):
     return f"{amount:,}"
 
 
 units = ('K', 'M', 'B', 'T', 'Qd', 'Qt', 'Sx', 'Sp', 'Oc', 'Nt', 'Dc',)
 
 
-def display_number(amount: float | int):
+def display_number(amount: Union[float, int]):
     return comma_adder(amount)
     # if amount < 1000:
     #     return str(amount)
@@ -269,7 +269,7 @@ def display_number(amount: float | int):
     #     return f"{amount:.1f}{units[unit_index]}"
 
 
-type TupleColor = tuple[int, int, int] | tuple[int, int, int, int]
+TupleColor = Union[tuple[int, int, int], tuple[int, int, int, int]]
 
 
 def rect_factory(pos: tuple[int, int], size: tuple[int, int], from_xy='left-top') -> pygame.Rect:
